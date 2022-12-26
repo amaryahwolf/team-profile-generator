@@ -1,7 +1,6 @@
 // Packages needed for application
 const inquirer = require('inquirer');
 const fs = require('fs');
-const generateHtml = requirie('');
 
 // Array of questions for user input
 const questions = [
@@ -33,7 +32,12 @@ const questions = [
     },
 ]
 
-// Function to write to HTML file
+// Function to generate HTML template literal
+function generateHtml(data) {
+    return ``;
+}
+
+// Function to write HTML file
 function writetoFile(fileName, data) {
     fs.writeFile(fileName, data, (err) => {
         if(err) throw err 
