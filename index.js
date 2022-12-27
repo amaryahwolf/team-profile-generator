@@ -80,9 +80,19 @@ function generateHtml(data) {
         <p>${data[i].getName()}</p>
         <p>${data[i].getId()}</p>
         <p>${data[i].getEmail()}</p>
-        <p>${data[i].getOfficeNumber()}</p>
+        <p>${data[i].getGitHub()}</p>
         </div>`
-    }
+    employeeHtml = employeeHtml + engineerHtml    
+    } else (data[i].getRole() === 'Intern') {
+        const internHtml = `<div>
+        <p>${data[i].getName()}</p>
+        <p>${data[i].getId()}</p>
+        <p>${data[i].getEmail()}</p>
+        <p>${data[i].getSchool()}</p>
+        </div>`
+    employeeHtml = employeeHtml + internHtml    
+    } 
+}
     return `<!DOCTYPE html>
     <html lang="en">
     <head>
