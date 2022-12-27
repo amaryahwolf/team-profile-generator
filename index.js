@@ -39,18 +39,41 @@ const engineerQuestions = [
     },
     {
         type: 'input',
-        message: "Enter engineer's employee ID:",
+        message: "Enter Engineer's employee ID:",
         name: 'engineerId'
     },
     {
         type: 'input',
-        message: "Enter engineer's email address:",
+        message: "Enter Engineer's email address:",
         name: 'engineerEmail'
     },
     {
         type: 'input',
-        message: "Enter engineer's github username:",
+        message: "Enter Engineer's github username:",
         name: 'github'
+    },
+]
+
+const internQuestions = [
+    {
+        type: 'input',
+        message: "Enter Intern's name:",
+        name: 'internName',
+    },
+    {
+        type: 'input',
+        message: "Enter Intern's employee ID:",
+        name: 'internId'
+    },
+    {
+        type: 'input',
+        message: "Enter Intern's email address:",
+        name: 'internEmail'
+    },
+    {
+        type: 'input',
+        message: "Enter Intern's school:",
+        name: 'school'
     },
 ]
 
@@ -116,7 +139,7 @@ function writetoFile() {
     )
 }
 
-// Function to initialize app
+// Function to get manager data
 function getManager() {
     inquirer
     .prompt (managerQuestions)
@@ -128,6 +151,7 @@ function getManager() {
     )
 }
 
+// Function to prompt next employee card
 function nextEmployee() {
     inquirer
     .prompt (menuQuestions)
@@ -143,6 +167,7 @@ function nextEmployee() {
     )
 }
 
+// Function to get engineer data
 function getEngineer() {
     inquirer
     .prompt (engineerQuestions)
@@ -154,6 +179,7 @@ function getEngineer() {
     )
 }
 
+// Function to get intern data
 function getIntern() {
     inquirer
     .prompt (internQuestions)
