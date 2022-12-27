@@ -103,10 +103,10 @@ function generateHtml(data) {
         <p>${data[i].getName()}</p>
         <p>${data[i].getId()}</p>
         <p>${data[i].getEmail()}</p>
-        <p>${data[i].getGitHub()}</p>
+        <p>${data[i].getGithub()}</p>
         </div>`
     employeeHtml = employeeHtml + engineerHtml    
-    } else (data[i].getRole() === 'Intern') {
+    } else  {
         const internHtml = `<div>
         <p>${data[i].getName()}</p>
         <p>${data[i].getId()}</p>
@@ -114,7 +114,7 @@ function generateHtml(data) {
         <p>${data[i].getSchool()}</p>
         </div>`
     employeeHtml = employeeHtml + internHtml    
-    } 
+    }
 }
     return `<!DOCTYPE html>
     <html lang="en">
@@ -184,7 +184,7 @@ function getIntern() {
     inquirer
     .prompt (internQuestions)
     .then((response)=> {
-       const intern = new Engineer(response.internName, response.internId, response.internEmail, response.school)
+       const intern = new Intern(response.internName, response.internId, response.internEmail, response.school)
        employeeList.push(intern)
        nextEmployee()
     }
