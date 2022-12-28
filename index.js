@@ -97,9 +97,9 @@ function generateHtml(data) {
         <h3><i class="fa-sharp fa-solid fa-people-roof"></i> ${data[i].getRole()}</h3>
         </header>
         <ul class="list-group list-group-flush">
-            <li class="list-group-item">${data[i].getId()}</li>
-            <li class="list-group-item">${data[i].getEmail()}</li>
-            <li class="list-group-item">${data[i].getOfficeNumber()}</li>
+            <li class="list-group-item">ID: ${data[i].getId()}</li>
+            <li class="list-group-item">Email: <a href="mailto: ${data[i].getEmail()}">${data[i].getEmail()}</a></li>
+            <li class="list-group-item">Office No. ${data[i].getOfficeNumber()}</li>
         </ul>
         </div>`
     employeeHtml = employeeHtml + managerHtml    
@@ -110,9 +110,9 @@ function generateHtml(data) {
         <h3><i class="fa-solid fa-user-gear"></i> ${data[i].getRole()}</h3>
         </header>
         <ul class="list-group list-group-flush">
-            <li class="list-group-item">${data[i].getId()}</li>
-            <li class="list-group-item">${data[i].getEmail()}</li>
-            <li class="list-group-item">${data[i].getGithub()}</li>
+            <li class="list-group-item">ID: ${data[i].getId()}</li>
+            <li class="list-group-item"><a href="mailto: ${data[i].getEmail()}">${data[i].getEmail()}</a></li>
+            <li class="list-group-item">Github: <a target="_blank" href="https://github.com/${data[i].getGithub()}">${data[i].getGithub()}</a></li>
         </ul>
         </div>`
     employeeHtml = employeeHtml + engineerHtml    
@@ -123,9 +123,9 @@ function generateHtml(data) {
         <h3><i class="fa-solid fa-user-pen"></i> ${data[i].getRole()}</h3>
         </header>
         <ul class="list-group list-group-flush">
-            <li class="list-group-item">${data[i].getId()}</li>
-            <li class="list-group-item">${data[i].getEmail()}</li>
-            <li class="list-group-item">${data[i].getSchool()}</li>
+            <li class="list-group-item">ID: ${data[i].getId()}</li>
+            <li class="list-group-item"><a href="mailto: ${data[i].getEmail()}">${data[i].getEmail()}</a></li>
+            <li class="list-group-item">School: ${data[i].getSchool()}</li>
         </ul>
         </div>`
     employeeHtml = employeeHtml + internHtml    
