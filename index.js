@@ -91,27 +91,42 @@ function generateHtml(data) {
     let employeeHtml = '';
     for (let i = 0; i < data.length; i++) {
         if (data[i].getRole() === 'Manager') {
-            const managerHtml = `<div>
-        <p>${data[i].getName()}</p>
-        <p>${data[i].getId()}</p>
-        <p>${data[i].getEmail()}</p>
-        <p>${data[i].getOfficeNumber()}</p>
+            const managerHtml = `<div class="card shadow" style="width: 18rem">
+        <header class="card-header">
+        <h3>${data[i].getName()}</h3>
+        <h3><i class="fa-sharp fa-solid fa-people-roof"></i> ${data[i].getRole()}</h3>
+        </header>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">${data[i].getId()}</li>
+            <li class="list-group-item">${data[i].getEmail()}</li>
+            <li class="list-group-item">${data[i].getOfficeNumber()}</li>
+        </ul>
         </div>`
     employeeHtml = employeeHtml + managerHtml    
     } else if (data[i].getRole() === 'Engineer') {
-        const engineerHtml = `<div>
-        <p>${data[i].getName()}</p>
-        <p>${data[i].getId()}</p>
-        <p>${data[i].getEmail()}</p>
-        <p>${data[i].getGithub()}</p>
+        const engineerHtml = `<div class="card shadow" style="width: 18rem">
+        <header class="card-header">
+        <h3>${data[i].getName()}</h3>
+        <h3><i class="fa-solid fa-user-gear"></i> ${data[i].getRole()}</h3>
+        </header>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">${data[i].getId()}</li>
+            <li class="list-group-item">${data[i].getEmail()}</li>
+            <li class="list-group-item">${data[i].getGithub()}</li>
+        </ul>
         </div>`
     employeeHtml = employeeHtml + engineerHtml    
     } else  {
-        const internHtml = `<div>
-        <p>${data[i].getName()}</p>
-        <p>${data[i].getId()}</p>
-        <p>${data[i].getEmail()}</p>
-        <p>${data[i].getSchool()}</p>
+        const internHtml = `<div class="card shadow" style="width: 18rem">
+        <header class="card-header">
+        <h3>${data[i].getName()}</h3>
+        <h3><i class="fa-solid fa-user-pen"></i> ${data[i].getRole()}</h3>
+        </header>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">${data[i].getId()}</li>
+            <li class="list-group-item">${data[i].getEmail()}</li>
+            <li class="list-group-item">${data[i].getSchool()}</li>
+        </ul>
         </div>`
     employeeHtml = employeeHtml + internHtml    
     }
@@ -122,10 +137,14 @@ function generateHtml(data) {
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         <title>Team Profile</title>
     </head>
     <body>
+    <div class ="d-flex justify-content-center m-3 gap-3">
         ${employeeHtml}
+    </div> 
+    <script src="https://kit.fontawesome.com/09291fcd82.js" crossorigin="anonymous"></script>   
     </body>
     </html>`;
 }
