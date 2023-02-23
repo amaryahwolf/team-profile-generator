@@ -102,9 +102,9 @@ function generateHtml(data) {
             <li class="list-group-item">Office No. ${data[i].getOfficeNumber()}</li>
         </ul>
         </div>`
-    employeeHtml = employeeHtml + managerHtml    
-    } else if (data[i].getRole() === 'Engineer') {
-        const engineerHtml = `<div class="card shadow" style="width: 18rem">
+            employeeHtml = employeeHtml + managerHtml
+        } else if (data[i].getRole() === 'Engineer') {
+            const engineerHtml = `<div class="card shadow" style="width: 18rem">
         <header class="card-header">
         <h3>${data[i].getName()}</h3>
         <h3><i class="fa-solid fa-user-gear"></i> ${data[i].getRole()}</h3>
@@ -115,9 +115,9 @@ function generateHtml(data) {
             <li class="list-group-item">Github: <a target="_blank" href="https://github.com/${data[i].getGithub()}">${data[i].getGithub()}</a></li>
         </ul>
         </div>`
-    employeeHtml = employeeHtml + engineerHtml    
-    } else  {
-        const internHtml = `<div class="card shadow" style="width: 18rem">
+            employeeHtml = employeeHtml + engineerHtml
+        } else {
+            const internHtml = `<div class="card shadow" style="width: 18rem">
         <header class="card-header">
         <h3>${data[i].getName()}</h3>
         <h3><i class="fa-solid fa-user-pen"></i> ${data[i].getRole()}</h3>
@@ -128,9 +128,9 @@ function generateHtml(data) {
             <li class="list-group-item">School: ${data[i].getSchool()}</li>
         </ul>
         </div>`
-    employeeHtml = employeeHtml + internHtml    
+            employeeHtml = employeeHtml + internHtml
+        }
     }
-}
     return `<!DOCTYPE html>
     <html lang="en">
     <head>
@@ -152,7 +152,7 @@ function generateHtml(data) {
 // Function to write HTML file
 function writetoFile() {
     fs.writeFile('index.html', generateHtml(employeeList), (err) => {
-        if(err) throw err 
+        if (err) throw err
         console.log("Input received!")
     }
     )
@@ -161,53 +161,53 @@ function writetoFile() {
 // Function to get manager data
 function getManager() {
     inquirer
-    .prompt (managerQuestions)
-    .then((response)=> {
-        const manager = new Manager(response.managerName, response.managerId, response.managerEmail, response.officeNumber)
-        employeeList.push(manager);
-        nextEmployee()
-    }
-    )
+        .prompt(managerQuestions)
+        .then((response) => {
+            const manager = new Manager(response.managerName, response.managerId, response.managerEmail, response.officeNumber)
+            employeeList.push(manager);
+            nextEmployee()
+        }
+        )
 }
 
 // Function to prompt next employee card
 function nextEmployee() {
     inquirer
-    .prompt (menuQuestions)
-    .then((response)=> {
-        if ('add an engineer' === response.menu) {
-            return getEngineer()
-        } else if  ('add an intern' === response.menu) {
-             return getIntern()   
-        } else {
-            return writetoFile()
+        .prompt(menuQuestions)
+        .then((response) => {
+            if ('add an engineer' === response.menu) {
+                return getEngineer()
+            } else if ('add an intern' === response.menu) {
+                return getIntern()
+            } else {
+                return writetoFile()
+            }
         }
-    }
-    )
+        )
 }
 
 // Function to get engineer data
 function getEngineer() {
     inquirer
-    .prompt (engineerQuestions)
-    .then((response)=> {
-       const engineer = new Engineer(response.engineerName, response.engineerId, response.engineerEmail, response.github)
-       employeeList.push(engineer)
-       nextEmployee()
-    }
-    )
+        .prompt(engineerQuestions)
+        .then((response) => {
+            const engineer = new Engineer(response.engineerName, response.engineerId, response.engineerEmail, response.github)
+            employeeList.push(engineer)
+            nextEmployee()
+        }
+        )
 }
 
 // Function to get intern data
 function getIntern() {
     inquirer
-    .prompt (internQuestions)
-    .then((response)=> {
-       const intern = new Intern(response.internName, response.internId, response.internEmail, response.school)
-       employeeList.push(intern)
-       nextEmployee()
-    }
-    )
+        .prompt(internQuestions)
+        .then((response) => {
+            const intern = new Intern(response.internName, response.internId, response.internEmail, response.school)
+            employeeList.push(intern)
+            nextEmployee()
+        }
+        )
 }
 
 // Function call to initialize app
